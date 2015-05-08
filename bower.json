@@ -1,0 +1,24 @@
+{
+  "name": "jsplayground",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ibare/jsplayground",
+  "authors": [
+    "Kim mintae <ibare77@gmail.com>"
+  ],
+  "description": "Interactive Javascript REPL",
+  "keywords": [
+    "Javascript",
+    "REPL"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "codemirror": "~5.2.0"
+  }
+}

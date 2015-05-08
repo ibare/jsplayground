@@ -1,0 +1,27 @@
+{
+  "name": "jsplayground",
+  "version": "0.0.1",
+  "description": "Interactive Javascript REPL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibare/jsplayground.git"
+  },
+  "keywords": [
+    "Javascript",
+    "REPL"
+  ],
+  "author": "Kim mintae <ibare77@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibare/jsplayground/issues"
+  },
+  "homepage": "https://github.com/ibare/jsplayground",
+  "dependencies": {
+    "debug": "^2.1.3",
+    "express": "^4.12.3"
+  }
+}
