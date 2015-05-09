@@ -19,6 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "codemirror": "~5.2.0"
+    "codemirror": "~5.2.0",
+    "jquery": "~2.1.4"
   }
 }
