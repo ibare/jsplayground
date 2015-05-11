@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/codemirror/lib/codemirror.css"></link>
+  <link rel="stylesheet" href="/codemirror/addon/lint/lint.css">
   <style>
     html, body {
       height: 100%;
@@ -18,21 +19,59 @@
       border: 1px solid #eee;
       height: 100%;
     }
+
+    .frame {
+      width: 100%;
+      height: 100%;
+    }
+
+    .frame .play {
+      position: relative;
+      float: left;
+      width: 50%;
+      height: 100%;
+    }
+
+    .frame .ground {
+      position: relative;
+      float: left;
+      width; 50%;
+      height: 100%;
+    }
   </style>
+  <script src="/underscore/underscore-min.js"></script>
   <script src="/jquery/dist/jquery.min.js"></script>
   <script src="/codemirror/lib/codemirror.js"></script>
+  <script src="//ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js"></script>
+  <script src="/codemirror/addon/lint/lint.js"></script>
+  <script src="/codemirror/mode/javascript/javascript.js"></script>
+  <script src="/codemirror/addon/lint/javascript-lint.js"></script>
 </head>
 <body>
-  <textarea id="code"></textarea>
+  <div class="frame">
+    <div class="play">
+      <textarea id="code"></textarea>
+    </div>
+    <div class="ground"></div>
+  </div>
   <script>
     $(function() {
       var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
         lineNumbers: true,
         mode: 'javascript',
+        gutters: ["CodeMirror-lint-markers"],
+        lint: true
       });
 
-      editor.on('change', function(code) {
-        console.log(code.getValue());
+      editor.on('change', function(cm) {
+        /*
+         * cm.state.lint.marked[].__annotation.severity : [warning, error]
+         */
+        if(!cm.state.lint.marked.length) {
+          console.log('clean');
+
+          $('.ground').html(cm.getValue().replace(/\n/gm, '<br>'));
+        }
       });
     });
   </script>

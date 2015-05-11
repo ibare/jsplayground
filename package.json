@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ibare/jsplayground",
   "dependencies": {
     "debug": "^2.1.3",
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "v8-debug": "^0.4.4"
   }
 }
