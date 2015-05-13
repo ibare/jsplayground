@@ -68,9 +68,15 @@
          * cm.state.lint.marked[].__annotation.severity : [warning, error]
          */
         if(!cm.state.lint.marked.length) {
-          console.log('clean');
+          $.ajax({
+            method: 'post',
+            url: '/code/run',
+            data: { code: cm.getValue() }
+          }).done(function(data) {
+            console.log(data);
+          });
 
-          $('.ground').html(cm.getValue().replace(/\n/gm, '<br>'));
+          // $('.ground').html(cm.getValue().replace(/\n/gm, '<br>'));
         }
       });
     });
