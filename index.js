@@ -50,9 +50,9 @@ app.post('/code/run', function(req, res) {
       }
     });
 
-    res.send({ status: 'ok' });
+    res.send({ parsing: true , code: req.body.code });
   } catch(ex) {
-    res.send({});
+    res.send({ parsing: false });
   }
 });
 

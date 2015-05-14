@@ -37,6 +37,9 @@
       float: left;
       width; 50%;
       height: 100%;
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
     }
   </style>
   <script src="/underscore/underscore-min.js"></script>
@@ -52,7 +55,7 @@
     <div class="play">
       <textarea id="code"></textarea>
     </div>
-    <div class="ground"></div>
+    <pre class="ground"></pre>
   </div>
   <script>
     $(function() {
@@ -73,10 +76,12 @@
             url: '/code/run',
             data: { code: cm.getValue() }
           }).done(function(data) {
-            console.log(data);
+            if(data.parsing) {
+              $('.ground').html(data.code.replace(/\n/gm, '<br>'));
+            } else {
+              $('.ground').html('<b>Error!</b>');
+            }
           });
-
-          // $('.ground').html(cm.getValue().replace(/\n/gm, '<br>'));
         }
       });
     });
